@@ -1,0 +1,8 @@
+services:
+  backend:
+    build: ./Backend
+    command: flask run -h 0.0.0.0
+    ports:
+      - 5000:5000
+    env_file:
+      - ./Backend/.env
