@@ -1,0 +1,6 @@
+DROP TABLE IF EXISTS transactions;
+
+CREATE TABLE transactions (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    content TEXT NOT NULL
+)

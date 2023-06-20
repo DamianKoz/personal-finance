@@ -1,5 +1,7 @@
 from flask import Blueprint, request
 import pandas as pd
+from .. import db
+from app.models import Transaction
 
 
 main = Blueprint("main", __name__)
@@ -19,3 +21,10 @@ def upload_csv_file():
 @main.route("/health", methods=["GET"])
 def check_api_health():
     return {"status": "ok"}, 200
+
+@main.route("/test", methods=["GET"])
+def add_test_user():
+    test = Transaction(text="Testing")
+    db.session.add(test)
+    db.session.commit()
+    return {}, 200
